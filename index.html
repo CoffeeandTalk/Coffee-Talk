@@ -1,5 +1,3 @@
-<!-- # Coffee-Talk -->
-<!-- For Expats worldwide. To share a coffee and talk about things that may be difficult, or just get something out of their chest. -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -496,8 +494,6 @@
             height: auto;
             display: block;
             transition: transform 0.7s ease;
-            object-fit: cover;
-            height: 500px;
         }
 
         .about-img:hover img {
@@ -976,11 +972,621 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
-
-            .footer-content {
+            
+            .pricing-card.featured {
+                order: 0;
+            }
+            
+            .contact-form {
                 grid-template-columns: 1fr;
-                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-secondary);
+                padding: 30px;
+                box-shadow: var(--shadow);
+                gap: 25px;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .language-switcher {
+                display: none;
+            }
+            
+            .form-container {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+            
+            .price {
+                font-size: 2.8rem;
+            }
+            
+            .faq-question {
+                padding: 20px 25px;
+                font-size: 1.15rem;
+            }
+            
+            .faq-answer {
+                padding: 0 25px;
+            }
+            
+            .faq-answer.open {
+                padding: 0 25px 25px;
             }
         }
     </style>
 </head>
+<body>
+    <!-- Header with Enhanced Logo -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Coffee & Talk</div>
+                    <div class="logo-subtitle">For Expats Worldwide</div>
+                </div>
+            </a>
+            
+            <!-- UPDATED: Language Switcher - Only English and Spanish -->
+            <div class="language-switcher">
+                <div class="lang-btn active" data-lang="en">EN</div>
+                <div class="lang-btn" data-lang="es">ES</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#value">Why Choose Us</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn btn-small">Let's Talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - UPDATED with Option 3 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <!-- UPDATED: Big Title - Changed to focus on emotions -->
+            <h1 class="lang-en">When Emotions Are Too Difficult to Express</h1>
+            <h1 class="lang-es" style="display: none;">Cuando las Emociones son Demasiado Difíciles de Expresar</h1>
+            
+            <p class="lang-en">A safe space for expats to unpack grief, loss, and bottled emotions. Guided conversations with a licensed psychologist—no therapy, just human connection over virtual coffee.</p>
+            <p class="lang-es" style="display: none;">Un espacio seguro para expatriados para desempacar el duelo, la pérdida y las emociones reprimidas. Conversaciones guiadas con una psicóloga licenciada—no es terapia, solo conexión humana sobre café virtual.</p>
+            
+            <p class="lang-en highlight">Not therapy. Not counseling. Just conversation.</p>
+            <p class="lang-es highlight" style="display: none;">No es terapia. No es consulta. Solo conversación.</p>
+            
+            <a href="#contact" class="btn">Book Your Virtual Coffee</a>
+            <a href="#value" class="btn btn-outline">Learn More</a>
+            
+            <!-- UPDATED: Subtitle - Changed to the compassionate quote -->
+            <p class="hero-subtitle lang-en">"Because sometimes, the hardest part is finding someone who understands"</p>
+            <p class="hero-subtitle lang-es" style="display: none;">"Porque a veces, la parte más difícil es encontrar a alguien que entienda"</p>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-props" id="value">
+        <div class="container">
+            <h2 class="lang-en">Why Choose Coffee & Talk?</h2>
+            <h2 class="lang-es" style="display: none;">¿Por qué elegir Coffee & Talk?</h2>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="lang-en">Grief & Loss Support</h3>
+                    <h3 class="lang-es" style="display: none;">Apoyo para Duelo y Pérdida</h3>
+                    <p class="lang-en">Special focus on expats dealing with loss, grief, and traumatic events. A compassionate space to express bottled emotions when far from home and support systems.</p>
+                    <p class="lang-es" style="display: none;">Enfoque especial en expatriados que lidian con pérdida, duelo y eventos traumáticos. Un espacio compasivo para expresar emociones reprimidas cuando estás lejos de casa y de sistemas de apoyo.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="lang-en">Bilingual & Culturally Aware</h3>
+                    <h3 class="lang-es" style="display: none;">Bilingüe y Consciente Culturalmente</h3>
+                    <p class="lang-en">Available in English and Spanish. We understand the unique emotional challenges of living abroad, especially when processing loss in a foreign environment.</p>
+                    <p class="lang-es" style="display: none;">Disponible en inglés y español. Entendemos los desafíos emocionales únicos de vivir en el extranjero, especialmente cuando se procesa la pérdida en un entorno extranjero.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="lang-en">Flexible & No Commitments</h3>
+                    <h3 class="lang-es" style="display: none;">Flexible y Sin Compromisos</h3>
+                    <p class="lang-en">Book sessions when you need them—no packages, no subscriptions, no long-term commitments. Pay per conversation and connect from anywhere in the world.</p>
+                    <p class="lang-es" style="display: none;">Reserva sesiones cuando las necesites—sin paquetes, sin suscripciones, sin compromisos a largo plazo. Paga por conversación y conéctate desde cualquier parte del mundo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Psychologist Section - UPDATED for MSc. Guadalupe Hernandez -->
+    <section class="about-psychologist" id="about">
+        <div class="container">
+            <h2 class="lang-en">Meet Your Guide</h2>
+            <h2 class="lang-es" style="display: none;">Conoce a tu Guía</h2>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- Placeholder for psychologist image -->
+                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal)); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        <div style="text-align: center; padding: 20px;">
+                            <i class="fas fa-user-md" style="font-size: 4rem; margin-bottom: 20px; color: rgba(255,255,255,0.9);"></i>
+                            <p style="color: rgba(255,255,255,0.9);">MSc. Guadalupe Hernandez</p>
+                            <p style="color: rgba(255,255,255,0.9);">Clinical Psychology Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <!-- UPDATED: Changed from Dr. to MSc. -->
+                    <h3 class="psychologist-name">MSc. Guadalupe Hernandez</h3>
+                    <!-- UPDATED: Shorter title with "especialista en psicología clínica" -->
+                    <p class="lang-en psychologist-title">Licensed Psychologist | Clinical Psychology Specialist | Expat Support</p>
+                    <p class="lang-es psychologist-title" style="display: none;">Psicóloga Licenciada | Especialista en Psicología Clínica | Apoyo para Expatriados</p>
+                    
+                    <p class="lang-en">With a background as a project manager supporting women's rights and vulnerable communities, MSc. Hernandez brings deep empathy to helping expats navigate loss, grief, and bottled emotions. After witnessing how hard it can be for people to articulate emotional pain, she pursued her Master's in Clinical Psychology to provide accessible support.</p>
+                    <p class="lang-es" style="display: none;">Con experiencia como gerente de proyectos apoyando derechos de mujeres y comunidades vulnerables, MSc. Hernandez aporta una profunda empatía para ayudar a expatriados a navegar pérdida, duelo y emociones reprimidas. Después de presenciar lo difícil que puede ser para las personas articular el dolor emocional, obtuvo su Maestría en Psicología Clínica para proporcionar apoyo accesible.</p>
+                    
+                    <!-- UPDATED: Removed "travel for pleasure" line -->
+                    <p class="lang-en">"Having lived and worked internationally, I understand how isolation can amplify grief. Coffee & Talk breaks the stereotype that you need to be 'in crisis' to seek support. Sometimes, living far from home makes ordinary losses feel overwhelming, and you just need someone who gets it."</p>
+                    <p class="lang-es" style="display: none;">"Habiendo vivido y trabajado internacionalmente, entiendo cómo el aislamiento puede amplificar el duelo. Coffee & Talk rompe el estereotipo de que necesitas estar 'en crisis' para buscar apoyo. A veces, vivir lejos de casa hace que las pérdidas ordinarias se sientan abrumadoras, y solo necesitas a alguien que lo entienda."</p>
+                    
+                    <div class="credentials">
+                        <h4 class="lang-en">Professional Journey</h4>
+                        <h4 class="lang-es" style="display: none;">Trayectoria Profesional</h4>
+                        <ul>
+                            <li class="lang-en">MSc. in Clinical Psychology | Licensed Psychologist</li>
+                            <li class="lang-es" style="display: none;">MSc. en Psicología Clínica | Psicóloga Licenciada</li>
+                            
+                            <li class="lang-en">4 years of mentorship under senior psychologists</li>
+                            <li class="lang-es" style="display: none;">4 años de mentoría bajo psicólogos senior</li>
+                            
+                            <li class="lang-en">Experience with private clients in grief/loss support</li>
+                            <li class="lang-es" style="display: none;">Experiencia con clientes privados en apoyo de duelo/pérdida</li>
+                            
+                            <li class="lang-en">Extensive travel experience across Europe & the Americas</li>
+                            <li class="lang-es" style="display: none;">Amplia experiencia de viaje en Europa y las Américas</li>
+                            
+                            <li class="lang-en">Special focus on expat emotional support and grief processing</li>
+                            <li class="lang-es" style="display: none;">Enfoque especial en apoyo emocional para expatriados y procesamiento de duelo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section - UPDATED: 3 Plans Only (30, 45, 60 minutes) -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="lang-en">Choose Your Conversation Length</h2>
+            <h2 class="lang-es" style="display: none;">Elige la Duración de tu Conversación</h2>
+            
+            <div class="pricing-intro">
+                <p class="lang-en">Different needs require different timeframes. Choose what feels right for you—whether you need a focused check-in or extended time to unpack complex emotions.</p>
+                <p class="lang-es" style="display: none;">Diferentes necesidades requieren diferentes marcos de tiempo. Elige lo que se sienta bien para ti—ya sea que necesites un chequeo enfocado o tiempo extendido para desempacar emociones complejas.</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="lang-en">Coffee Chat</h3>
+                    <h3 class="lang-es" style="display: none;">Charla de Café</h3>
+                    <div class="price">$38<span class="lang-en"> / 30 min</span><span class="lang-es" style="display: none;"> / 30 min</span></div>
+                    <ul class="pricing-features">
+                        <li class="included"><span class="lang-en">30-minute guided conversation</span><span class="lang-es" style="display: none;">Conversación guiada de 30 minutos</span></li>
+                        <li class="included"><span class="lang-en">Perfect for focused sharing</span><span class="lang-es" style="display: none;">Perfecto para compartir enfocado</span></li>
+                        <li class="included"><span class="lang-en">Available in English & Spanish</span><span class="lang-es" style="display: none;">Disponible en inglés y español</span></li>
+                        <li class="included"><span class="lang-en">Flexible scheduling</span><span class="lang-es" style="display: none;">Programación flexible</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline lang-en">Select Plan</a>
+                    <a href="#contact" class="btn btn-outline lang-es" style="display: none;">Seleccionar</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="featured-badge lang-en">MOST POPULAR</div>
+                    <div class="featured-badge lang-es" style="display: none;">MÁS POPULAR</div>
+                    <h3 class="lang-en">Extended Talk</h3>
+                    <h3 class="lang-es" style="display: none;">Conversación Extendida</h3>
+                    <div class="price">$55<span class="lang-en"> / 45 min</span><span class="lang-es" style="display: none;"> / 45 min</span></div>
+                    <ul class="pricing-features">
+                        <li class="included"><span class="lang-en">45-minute in-depth conversation</span><span class="lang-es" style="display: none;">Conversación en profundidad de 45 minutos</span></li>
+                        <li class="included"><span class="lang-en">Most popular choice</span><span class="lang-es" style="display: none;">Elección más popular</span></li>
+                        <li class="included"><span class="lang-en">Available in English & Spanish</span><span class="lang-es" style="display: none;">Disponible en inglés y español</span></li>
+                        <li class="included"><span class="lang-en">Flexible scheduling</span><span class="lang-es" style="display: none;">Programación flexible</span></li>
+                        <li class="included"><span class="lang-en">Follow-up resources included</span><span class="lang-es" style="display: none;">Recursos de seguimiento incluidos</span></li>
+                    </ul>
+                    <a href="#contact" class="btn lang-en">Select Plan</a>
+                    <a href="#contact" class="btn lang-es" style="display: none;">Seleccionar</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="lang-en">Deep Dive</h3>
+                    <h3 class="lang-es" style="display: none;">Inmersión Profunda</h3>
+                    <div class="price">$75<span class="lang-en"> / 60 min</span><span class="lang-es" style="display: none;"> / 60 min</span></div>
+                    <ul class="pricing-features">
+                        <li class="included"><span class="lang-en">60-minute comprehensive session</span><span class="lang-es" style="display: none;">Sesión integral de 60 minutos</span></li>
+                        <li class="included"><span class="lang-en">For complex or multiple concerns</span><span class="lang-es" style="display: none;">Para preocupaciones complejas o múltiples</span></li>
+                        <li class="included"><span class="lang-en">Available in English & Spanish</span><span class="lang-es" style="display: none;">Disponible en inglés y español</span></li>
+                        <li class="included"><span class="lang-en">Priority scheduling</span><span class="lang-es" style="display: none;">Programación prioritaria</span></li>
+                        <li class="included"><span class="lang-en">Extended follow-up support</span><span class="lang-es" style="display: none;">Soporte de seguimiento extendido</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline lang-en">Select Plan</a>
+                    <a href="#contact" class="btn btn-outline lang-es" style="display: none;">Seleccionar</a>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-style: italic; color: var(--coffee-medium);" class="lang-en">All sessions include secure video platform, confidentiality guarantee, and optional follow-up resources.</p>
+            <p style="text-align: center; margin-top: 40px; font-style: italic; color: var(--coffee-medium);" class="lang-es" style="display: none;">Todas las sesiones incluyen plataforma de video segura, garantía de confidencialidad y recursos de seguimiento opcionales.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact">
+        <div class="container">
+            <h2 class="lang-en">Share What's On Your Heart</h2>
+            <h2 class="lang-es" style="display: none;">Comparte lo que Llevas en el Corazón</h2>
+            
+            <div class="form-container">
+                <div class="form-intro">
+                    <p class="lang-en">Whether you're dealing with loss, grief, or bottled emotions, this is your first step toward being heard. Share a bit about what brings you here, and we'll find the right conversation length for you.</p>
+                    <p class="lang-es" style="display: none;">Ya sea que estés lidiando con pérdida, duelo o emociones reprimidas, este es tu primer paso para ser escuchado. Comparte un poco sobre lo que te trae aquí, y encontraremos la duración de conversación adecuada para ti.</p>
+                </div>
+                
+                <form class="contact-form" id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name" class="lang-en">Your Name</label>
+                        <label for="name" class="lang-es" style="display: none;">Tu Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="lang-en">Email Address</label>
+                        <label for="email" class="lang-es" style="display: none;">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="language" class="lang-en">Preferred Language</label>
+                        <label for="language" class="lang-es" style="display: none;">Idioma Preferido</label>
+                        <select id="language" name="language" required>
+                            <option value="" class="lang-en">Select a language</option>
+                            <option value="" class="lang-es" style="display: none;">Selecciona un idioma</option>
+                            <option value="english" class="lang-en">English</option>
+                            <option value="english" class="lang-es" style="display: none;">Inglés</option>
+                            <option value="spanish" class="lang-en">Spanish</option>
+                            <option value="spanish" class="lang-es" style="display: none;">Español</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="session-length" class="lang-en">Preferred Session Length</label>
+                        <label for="session-length" class="lang-es" style="display: none;">Duración de Sesión Preferida</label>
+                        <select id="session-length" name="session-length" required>
+                            <option value="" class="lang-en">Select session length</option>
+                            <option value="" class="lang-es" style="display: none;">Selecciona duración de sesión</option>
+                            <option value="30min" class="lang-en">30 minutes - $38</option>
+                            <option value="30min" class="lang-es" style="display: none;">30 minutos - $38</option>
+                            <option value="45min" class="lang-en">45 minutes - $55</option>
+                            <option value="45min" class="lang-es" style="display: none;">45 minutos - $55</option>
+                            <option value="60min" class="lang-en">60 minutes - $75</option>
+                            <option value="60min" class="lang-es" style="display: none;">60 minutos - $75</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="concern" class="lang-en">What would you like to talk about? (Loss, grief, or any emotions you've been holding)</label>
+                        <label for="concern" class="lang-es" style="display: none;">¿Sobre qué te gustaría hablar? (Pérdida, duelo o cualquier emoción que hayas estado guardando)</label>
+                        <textarea id="concern" name="concern" placeholder="Share what brings you here. You don't need to go into detail—just a sense of what you're carrying." required></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn">
+                            <span class="lang-en">Send Your Message</span>
+                            <span class="lang-es" style="display: none;">Enviar tu Mensaje</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="form-note">
+                    <p class="lang-en"><i class="fas fa-lock" style="color: var(--accent-teal); margin-right: 10px;"></i> Your message is completely confidential. We'll respond within 24 hours with available time slots and next steps. This is not a crisis service—if you need immediate help, please contact emergency services in your country.</p>
+                    <p class="lang-es" style="display: none;"><i class="fas fa-lock" style="color: var(--accent-teal); margin-right: 10px;"></i> Tu mensaje es completamente confidencial. Responderemos dentro de 24 horas con horarios disponibles y próximos pasos. Esto no es un servicio de crisis—si necesitas ayuda inmediata, por favor contacta los servicios de emergencia de tu país.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="lang-en">Frequently Asked Questions</h2>
+            <h2 class="lang-es" style="display: none;">Preguntas Frecuentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-en">Is Coffee & Talk therapy or counseling?</span>
+                        <span class="lang-es" style="display: none;">¿Coffee & Talk es terapia o consejería?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-en"><strong>No, it is not.</strong> Coffee & Talk is a guided conversation service facilitated by a licensed psychologist, but it does not constitute psychological therapy, counseling, or clinical intervention. There are no diagnoses, treatment plans, or therapeutic processes. It's a space for conversation, listening, and basic emotional support.</p>
+                        <p class="lang-es" style="display: none;"><strong>No, no lo es.</strong> Coffee & Talk es un servicio de conversación guiada facilitado por una psicóloga licenciada, pero no constituye terapia psicológica, consejería o intervención clínica. No hay diagnósticos, planes de tratamiento o procesos terapéuticos. Es un espacio para conversación, escucha y apoyo emocional básico.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <!-- UPDATED: FAQ about psychological help -->
+                        <span class="lang-en">What if I need actual psychological help?</span>
+                        <span class="lang-es" style="display: none;">¿Qué pasa si necesito ayuda psicológica real?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-en"><strong>We can help with that too.</strong> If we identify that you might benefit from clinical psychological support during our conversation, we can provide online therapy or connect you with an appropriate specialist. MSc. Hernandez is also available for psychological treatment in addition to the guided conversations, offering a seamless transition to therapy if needed. Your safety and well-being are our priority.</p>
+                        <p class="lang-es" style="display: none;"><strong>También podemos ayudar con eso.</strong> Si identificamos que podrías beneficiarte de apoyo psicológico clínico durante nuestra conversación, podemos proporcionar terapia en línea o conectarte con un especialista apropiado. MSc. Hernandez también está disponible para tratamiento psicológico además de las conversaciones guiadas, ofreciendo una transición sin problemas a la terapia si es necesario. Tu seguridad y bienestar son nuestra prioridad.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-en">Can I book sessions in different languages?</span>
+                        <span class="lang-es" style="display: none;">¿Puedo reservar sesiones en diferentes idiomas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-en">Yes! MSc. Hernandez is fluent in English and Spanish. You can choose your preferred language when booking. Many expats find it particularly helpful to speak in their native language when discussing grief, loss, and emotional challenges.</p>
+                        <p class="lang-es" style="display: none;">¡Sí! MSc. Hernandez habla con fluidez inglés y español. Puedes elegir tu idioma preferido al reservar. Muchos expatriados encuentran particularmente útil hablar en su idioma nativo cuando discuten duelo, pérdida y desafíos emocionales.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-en">How does the booking process work?</span>
+                        <span class="lang-es" style="display: none;">¿Cómo funciona el proceso de reserva?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-en">Fill out the contact form with your preferred session length and a brief note about what brings you here. We'll respond within 24 hours with available time slots. Once you confirm a time, we'll send a secure payment link and video conference details.</p>
+                        <p class="lang-es" style="display: none;">Completa el formulario de contacto con tu duración de sesión preferida y una breve nota sobre lo que te trae aquí. Responderemos dentro de 24 horas con horarios disponibles. Una vez que confirmes un horario, enviaremos un enlace de pago seguro y los detalles de la videoconferencia.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-en">What technology do I need for a session?</span>
+                        <span class="lang-es" style="display: none;">¿Qué tecnología necesito para una sesión?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-en">You'll need a stable internet connection, a device with a camera and microphone (computer, tablet, or smartphone), and a quiet, private space. We use secure, encrypted video platforms that work in most modern browsers—no special software required.</p>
+                        <p class="lang-es" style="display: none;">Necesitarás una conexión a Internet estable, un dispositivo con cámara y micrófono (computadora, tableta o teléfono inteligente) y un espacio tranquilo y privado. Utilizamos plataformas de video seguras y encriptadas que funcionan en la mayoría de los navegadores modernos—no se requiere software especial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Coffee & Talk</h3>
+                    <p class="lang-en" style="color: rgba(255, 255, 255, 0.9);">Guided conversations for expats dealing with loss and bottled emotions. A safe space when home feels far away.</p>
+                    <p class="lang-es" style="display: none; color: rgba(255, 255, 255, 0.9);">Conversaciones guiadas para expatriados que lidian con pérdida y emociones reprimidas. Un espacio seguro cuando el hogar se siente lejos.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="lang-en">Quick Links</h3>
+                    <h3 class="lang-es" style="display: none;">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><span class="lang-en">Home</span><span class="lang-es" style="display: none;">Inicio</span></a></li>
+                        <li><a href="#value"><span class="lang-en">Why Choose Us</span><span class="lang-es" style="display: none;">Por qué Elegirnos</span></a></li>
+                        <li><a href="#about"><span class="lang-en">About MSc. Hernandez</span><span class="lang-es" style="display: none;">Sobre MSc. Hernandez</span></a></li>
+                        <li><a href="#pricing"><span class="lang-en">Pricing</span><span class="lang-es" style="display: none;">Precios</span></a></li>
+                        <li><a href="#faq"><span class="lang-en">FAQ</span><span class="lang-es" style="display: none;">Preguntas Frecuentes</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="lang-en">Contact & Legal</h3>
+                    <h3 class="lang-es" style="display: none;">Contacto y Legal</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:hello@coffeeandtalk.com">hello@coffeeandtalk.com</a></p>
+                        <p><i class="fas fa-globe"></i> <span class="lang-en">Serving expats worldwide</span><span class="lang-es" style="display: none;">Atendiendo a expatriados en todo el mundo</span></p>
+                        <p><i class="fas fa-user-md"></i> <span class="lang-en">Licensed Psychologist</span><span class="lang-es" style="display: none;">Psicóloga Licenciada</span></p>
+                        <p><i class="fas fa-file-contract"></i> <a href="#"><span class="lang-en">Legal Notice</span><span class="lang-es" style="display: none;">Aviso Legal</span></a></p>
+                        <p><i class="fas fa-lock"></i> <a href="#"><span class="lang-en">Privacy Policy</span><span class="lang-es" style="display: none;">Política de Privacidad</span></a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="lang-en">&copy; 2023 Coffee & Talk - Guided Conversations for Expats. All rights reserved. | Not a substitute for professional psychological help. If you are in crisis, please contact emergency services in your country.</p>
+                <p class="lang-es" style="display: none;">&copy; 2023 Coffee & Talk - Conversaciones Guiadas para Expatriados. Todos los derechos reservados. | No sustituye la ayuda psicológica profesional. Si estás en crisis, contacta los servicios de emergencia de tu país.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mainNav').classList.remove('active');
+            });
+        });
+
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show/hide language content
+                document.querySelectorAll('.lang-' + lang).forEach(el => {
+                    el.style.display = 'block';
+                });
+                
+                document.querySelectorAll(`[class*="lang-"]:not(.lang-${lang})`).forEach(el => {
+                    if (el.classList.contains('lang-en') || el.classList.contains('lang-es')) {
+                        el.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle this answer
+                answer.classList.toggle('open');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+                
+                // Close other answers
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer && otherAnswer.classList.contains('open')) {
+                        otherAnswer.classList.remove('open');
+                        otherAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                        otherAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const language = document.getElementById('language').value;
+            const sessionLength = document.getElementById('session-length').value;
+            const concern = document.getElementById('concern').value;
+            
+            // Simple validation
+            if (!name || !email || !language || !sessionLength || !concern) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Show success message
+            const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+            
+            if (currentLang === 'en') {
+                alert('Thank you for reaching out, ' + name + '! We\'ve received your message and will respond within 24 hours with available time slots for your ' + sessionLength + ' session.');
+            } else if (currentLang === 'es') {
+                alert('¡Gracias por contactarnos, ' + name + '! Hemos recibido tu mensaje y responderemos dentro de 24 horas con horarios disponibles para tu sesión de ' + sessionLength + '.');
+            }
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top of form
+            this.scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Initialize with English
+        document.querySelector('.lang-btn.active').click();
+    </script>
+</body>
+</html>
