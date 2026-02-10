@@ -48,6 +48,94 @@
     </script>
 
     <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+        
+        .modal-icon.success {
+            color: var(--accent-teal);
+        }
+        
+        .modal-icon.error {
+            color: #dc3545;
+        }
+        
+        .modal h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--coffee-dark);
+        }
+        
+        .modal p {
+            color: var(--text-medium);
+            margin-bottom: 30px;
+        }
+        
+        .modal .btn {
+            min-width: 150px;
+        }
+        
+        /* Form Date Input Styling */
+        input[type="date"] {
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--coffee-dark);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="date"]:hover {
+            border-color: var(--coffee-medium);
+        }
+        
+        input[type="date"]:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 3px rgba(46, 139, 132, 0.1);
+        }
+        
         /* COOL COFFEE COLOR SCHEME */
         :root {
             /* Primary Coffee Colors - Cooler Tone */
@@ -1376,6 +1464,54 @@
                     </select>
                 </div>
                 
+                <!-- Booking Schedule -->
+                <div class="form-group">
+                    <label for="booking-date" class="lang-en">Preferred Booking Date</label>
+                    <label for="booking-date" class="lang-es" style="display: none;">Fecha Preferida de Reserva</label>
+                    <input type="date" id="booking-date" name="booking-date">
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-time" class="lang-en">Preferred Time Slot</label>
+                    <label for="booking-time" class="lang-es" style="display: none;">Horario Preferido</label>
+                    <select id="booking-time" name="booking-time">
+                        <option value="" class="lang-en">Select a time slot</option>
+                        <option value="" class="lang-es" style="display: none;">Selecciona un horario</option>
+                        <option value="09:00" class="lang-en">09:00 AM</option>
+                        <option value="09:00" class="lang-es" style="display: none;">09:00 AM</option>
+                        <option value="10:00" class="lang-en">10:00 AM</option>
+                        <option value="10:00" class="lang-es" style="display: none;">10:00 AM</option>
+                        <option value="11:00" class="lang-en">11:00 AM</option>
+                        <option value="11:00" class="lang-es" style="display: none;">11:00 AM</option>
+                        <option value="14:00" class="lang-en">02:00 PM</option>
+                        <option value="14:00" class="lang-es" style="display: none;">02:00 PM</option>
+                        <option value="15:00" class="lang-en">03:00 PM</option>
+                        <option value="15:00" class="lang-es" style="display: none;">03:00 PM</option>
+                        <option value="16:00" class="lang-en">04:00 PM</option>
+                        <option value="16:00" class="lang-es" style="display: none;">04:00 PM</option>
+                        <option value="17:00" class="lang-en">05:00 PM</option>
+                        <option value="17:00" class="lang-es" style="display: none;">05:00 PM</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="timezone" class="lang-en">Your Timezone</label>
+                    <label for="timezone" class="lang-es" style="display: none;">Tu Zona Horaria</label>
+                    <select id="timezone" name="timezone">
+                        <option value="UTC">UTC</option>
+                        <option value="America/New_York">Eastern Time (ET)</option>
+                        <option value="America/Chicago">Central Time (CT)</option>
+                        <option value="America/Denver">Mountain Time (MT)</option>
+                        <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                        <option value="Europe/London">London (GMT)</option>
+                        <option value="Europe/Paris">Paris (CET)</option>
+                        <option value="Asia/Bangkok">Bangkok (ICT)</option>
+                        <option value="Asia/Singapore">Singapore (SGT)</option>
+                        <option value="Asia/Tokyo">Tokyo (JST)</option>
+                        <option value="Australia/Sydney">Sydney (AEST)</option>
+                    </select>
+                </div>
+                
                 <div class="form-group full-width">
                     <label for="concern" class="lang-en">What would you like to talk about?</label>
                     <label for="concern" class="lang-es" style="display: none;">¿Cuál sería el motivo de la conversación?</label>
@@ -1388,10 +1524,6 @@
                         <span class="lang-es" style="display: none;">Enviar tu Mensaje</span>
                     </button>
                 </div>
-
-                <input type="hidden" name="_subject" value="New Message from Coffee & Talk Website">
-                <input type="hidden" name="_replyto" value="">
-                <input type="hidden" name="_cc" value="coffeeandtalk67@gmail.com">
                 
                 <div class="form-note">
                     <p class="lang-en"><i class="fas fa-lock" style="color: var(--accent-teal); margin-right: 10px;"></i> Your message is completely confidential. We'll respond within 24 to 48 hours with available time slots and next steps. This is not a crisis service—if you need immediate help, please contact emergency services in your country.</p>
@@ -1401,19 +1533,75 @@
                 <div id="formMessage" style="display: none;"></div>
             </div>
         </div>
+        <input type="hidden" name="_subject" value="New Message from Coffee & Talk Website">
+        <input type="hidden" name="_replyto" value="">
+        
+        <!-- Modal Popup -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h3 id="modalTitle"></h3>
+                <p id="modalMessage"></p>
+                <button class="btn" id="modalCloseBtn">
+                    <span class="lang-en">Close</span>
+                    <span class="lang-es" style="display: none;">Cerrar</span>
+                </button>
+            </div>
+        </div>
     </form>
 
 <script>
+// Modal Functions
+function showModal(type, title, message) {
+    const overlay = document.getElementById('modalOverlay');
+    const icon = document.getElementById('modalIcon');
+    const titleEl = document.getElementById('modalTitle');
+    const msgEl = document.getElementById('modalMessage');
+    
+    // Set modal content
+    icon.className = 'modal-icon ' + type;
+    icon.innerHTML = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
+    titleEl.textContent = title;
+    msgEl.textContent = message;
+    
+    // Show modal
+    overlay.classList.add('active');
+}
+
+function hideModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+}
+
+// Close modal on button click
+document.getElementById('modalCloseBtn').addEventListener('click', hideModal);
+
+// Close modal on overlay click
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) hideModal();
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') hideModal();
+});
+
+// Set minimum date to today for booking
+const bookingDateInput = document.getElementById('booking-date');
+if (bookingDateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    bookingDateInput.setAttribute('min', today);
+}
+
 // Form submission handler
 document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const form = this;
     const submitBtn = document.getElementById('submitBtn');
-    const formMessage = document.getElementById('formMessage');
     const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
     
     // Show loading
+    const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + 
         (currentLang === 'en' ? 'Sending...' : 'Enviando...');
     submitBtn.disabled = true;
@@ -1428,58 +1616,28 @@ document.getElementById('inquiryForm').addEventListener('submit', async function
         });
         
         if (response.ok) {
-            // Success message
+            // Success popup
             if (currentLang === 'en') {
-                formMessage.innerHTML = `
-                    <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; border: 1px solid #c3e6cb;">
-                        <i class="fas fa-check-circle"></i> 
-                        Thank you! Your message has been sent. We'll respond within 24-48 hours.
-                    </div>
-                `;
+                showModal('success', 'Thank you!', 'Your message has been sent. We\'ll respond within 24-48 hours.');
             } else {
-                formMessage.innerHTML = `
-                    <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; border: 1px solid #c3e6cb;">
-                        <i class="fas fa-check-circle"></i> 
-                        ¡Gracias! Tu mensaje ha sido enviado. Responderemos en 24-48 horas.
-                    </div>
-                `;
+                showModal('success', '¡Gracias!', 'Tu mensaje ha sido enviado. Responderemos en 24-48 horas.');
             }
-            
-            formMessage.style.display = 'block';
             form.reset();
-            
         } else {
             throw new Error('Submission failed');
         }
         
     } catch (error) {
-        // Error message
+        // Error popup
         if (currentLang === 'en') {
-            formMessage.innerHTML = `
-                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; border: 1px solid #f5c6cb;">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    Sorry, there was an error. Please try again or email coffeeandtalk67@gmail.com
-                </div>
-            `;
+            showModal('error', 'Something went wrong', 'Please try again or email us directly at coffeeandtalk67@gmail.com');
         } else {
-            formMessage.innerHTML = `
-                <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; border: 1px solid #f5c6cb;">
-                    <i class="fas fa-exclamation-triangle"></i> 
-                    Lo sentimos, hubo un error. Inténtalo de nuevo o envía un correo a coffeeandtalk67@gmail.com
-                </div>
-            `;
+            showModal('error', 'Algo salió mal', 'Por favor inténtalo de nuevo o contáctanos directamente a coffeeandtalk67@gmail.com');
         }
-        formMessage.style.display = 'block';
-        
     } finally {
         // Reset button
-        submitBtn.innerHTML = currentLang === 'en' ? 'Send Your Message' : 'Enviar tu Mensaje';
+        submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
-        
-        // Clear message after 5 seconds
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 5000);
     }
 });
 </script>
